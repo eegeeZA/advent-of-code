@@ -56,3 +56,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# JetBrains
+\.idea/workspace\.xml
+\.idea/dictionaries/
+\.idea/misc\.xml
