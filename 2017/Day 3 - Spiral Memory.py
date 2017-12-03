@@ -20,4 +20,36 @@ print("answer 1:", abs_distance * 2 - abs(closest_corner - input_square))
 # 16295   351     11      23      25      26      1968    103128
 # 17008   362     747     806     880     931     957     98098
 # 17370   35487   37402   39835   42452   45220   47108   48065
-print("answer 2:", 295229)
+
+def add_nearby(search, vertical, horizontal):
+    result = 0
+    for x in range(vertical - 1, vertical + 2):
+        for y in range(horizontal - 1, horizontal + 2):
+            try:
+                result += search[(x, y)]
+            except KeyError:
+                pass
+    return result
+
+
+input_square = 289326
+v, h = 0, 0
+grid = {(v, h): 1}
+abs_distance = 0
+direction = 0
+while grid[(v, h)] < input_square:
+    if -v == abs_distance and h == abs_distance:
+        h += 1
+        abs_distance += 1
+    elif direction == 0:
+        v += 1
+    elif direction == 1:
+        h -= 1
+    elif direction == 2:
+        v -= 1
+    elif direction == 3:
+        h += 1
+    if abs(v) == abs_distance and abs(h) == abs_distance:
+        direction = (direction + 1) % 4
+    grid[(v, h)] = add_nearby(grid, v, h)
+print("answer 2:", grid[(v, h)])
