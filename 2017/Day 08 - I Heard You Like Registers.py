@@ -1,4 +1,4 @@
-instructions = open("inputs/day8.txt")
+instructions = open("inputs/day08.txt")
 registers = {}
 temp_largest = 0
 for instruction in instructions:

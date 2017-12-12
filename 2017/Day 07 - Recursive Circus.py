@@ -25,7 +25,7 @@ def build_tree_weights(factor_x):
         return weights[factor_x], factor_x
 
 
-inputs = open("inputs/day7.txt").read()
+inputs = open("inputs/day07.txt").read()
 weights = {}
 towers = {}
 for line in str.splitlines(inputs):

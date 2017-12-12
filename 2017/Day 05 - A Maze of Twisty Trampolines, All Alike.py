@@ -1,4 +1,4 @@
-instructions_input = open("inputs/day5.txt").readlines()
+instructions_input = open("inputs/day05.txt").readlines()
 instructions = list(map(int, instructions_input))
 i = 0
 steps = 0

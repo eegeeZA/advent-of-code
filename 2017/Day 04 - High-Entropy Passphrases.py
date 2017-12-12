@@ -1,4 +1,4 @@
-passphrases = open("inputs/day4.txt").readlines()
+passphrases = open("inputs/day04.txt").readlines()
 valid_count = 0
 for passphrase in passphrases:
     seen = []

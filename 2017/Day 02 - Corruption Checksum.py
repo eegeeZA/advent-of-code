@@ -1,6 +1,6 @@
 from itertools import combinations
 
-spreadsheet = open("inputs/day2.txt").readlines()
+spreadsheet = open("inputs/day02.txt").readlines()
 checksum = 0
 for row in spreadsheet:
     values = list(map(int, row.split()))

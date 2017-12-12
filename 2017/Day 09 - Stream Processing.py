@@ -1,4 +1,4 @@
-stream = open("inputs/day9.txt").readlines()[0]
+stream = open("inputs/day09.txt").readlines()[0]
 score = 0
 depth = 1
 garbage = False

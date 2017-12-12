@@ -1,4 +1,4 @@
-captcha = open("inputs/day1.txt").readlines()[0]
+captcha = open("inputs/day01.txt").readlines()[0]
 answer = 0
 for i, char in enumerate(captcha):
     if char == captcha[(i + 1) % len(captcha)]:
