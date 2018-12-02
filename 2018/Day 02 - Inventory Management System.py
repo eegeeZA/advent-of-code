@@ -1,23 +1,14 @@
+from collections import Counter
 from itertools import combinations
 
 twos = 0
 threes = 0
 for box_id in open("inputs/day02.txt"):
-    seen = []
-    two_counted = three_counted = False
-    for letter in box_id.rstrip():
-        if letter in seen:
-            continue
-        else:
-            seen.append(letter)
-
-        count = box_id.count(letter)
-        if count == 2 and not two_counted:
-            twos += 1
-            two_counted = True
-        if count == 3 and not three_counted:
-            threes += 1
-            three_counted = True
+    counts = Counter(box_id).values()
+    if 2 in counts:
+        twos += 1
+    if 3 in counts:
+        threes += 1
 print("answer 1:", twos * threes)
 
 best = ""
