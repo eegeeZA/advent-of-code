@@ -7,9 +7,8 @@ def lookup(int_code, mode, index):
         exit(str.format("something went wrong (mode:{} index:{})", mode, index))
 
 
-def int_code_compute(int_code, input_value):
+def int_code_compute(int_code, input_values):
     int_code = int_code.copy()
-
     i = 0
     result = 0
     while True:
@@ -23,7 +22,7 @@ def int_code_compute(int_code, input_value):
             int_code[int_code[i + 3]] = lookup(int_code, c, i + 1) * lookup(int_code, b, i + 2)
             i += 4
         elif op_code == "03":
-            int_code[int_code[i + 1]] = input_value
+            int_code[int_code[i + 1]] = input_values.pop(0)
             i += 2
         elif op_code == "04":
             result = lookup(int_code, c, i + 1)
@@ -52,6 +51,7 @@ def int_code_compute(int_code, input_value):
     return result
 
 
-initial_int_code = list(map(int, open("inputs/day05.txt").read().split(",")))
-print("answer 1:", int_code_compute(initial_int_code, 1))
-print("answer 2:", int_code_compute(initial_int_code, 5))
+if __name__ == "__main__":
+    initial_int_code = list(map(int, open("inputs/day05.txt").read().split(",")))
+    print("answer 1:", int_code_compute(initial_int_code, [1]))
+    print("answer 2:", int_code_compute(initial_int_code, [5]))
