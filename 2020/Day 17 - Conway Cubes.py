@@ -1,6 +1,3 @@
-from functools import reduce
-
-
 def mutate(new_state, x, y, z, depth=0):
     if depth > 1:
         return
@@ -10,27 +7,25 @@ def mutate(new_state, x, y, z, depth=0):
             for c in range(z - 1, z + 2):
                 if (a, b, c) != (x, y, z):
                     mutate(new_state, a, b, c, depth + 1)
-                    if (a, b, c) in state and state[a, b, c] == "#":
+                    if (a, b, c) in state:
                         active_count += 1
-    if (x, y, z) not in new_state:
-        new_state[x, y, z] = "."
-    if new_state[x, y, z] == "#" and not (2 <= active_count <= 3):
-        new_state[x, y, z] = "."
-    elif new_state[x, y, z] != "#" and active_count == 3:
+    if (x, y, z) in new_state and not (2 <= active_count <= 3):
+        del new_state[x, y, z]
+    elif (x, y, z) not in new_state and active_count == 3:
         new_state[x, y, z] = "#"
 
 
 state = {}
 for x, line in enumerate(open("inputs/day17.txt")):
     for y, point in enumerate(line.rstrip()):
-        state[x, y, 0] = point
+        if point == "#":
+            state[x, y, 0] = point
 for _ in range(6):
     new_state = state.copy()
     for x, y, z in state:
         mutate(new_state, x, y, z)
     state = new_state
-
-print("answer 1:", reduce(lambda total, x: total + 1 if x == "#" else total, state.values(), 0))
+print("answer 1:", len(state))
 
 
 def mutate(new_state, x, y, z, w, depth=0):
@@ -43,24 +38,22 @@ def mutate(new_state, x, y, z, w, depth=0):
                 for d in range(w - 1, w + 2):
                     if (a, b, c, d) != (x, y, z, w):
                         mutate(new_state, a, b, c, d, depth + 1)
-                        if (a, b, c, d) in state and state[a, b, c, d] == "#":
+                        if (a, b, c, d) in state:
                             active_count += 1
-    if (x, y, z, w) not in new_state:
-        new_state[x, y, z, w] = "."
-    if new_state[x, y, z, w] == "#" and not (2 <= active_count <= 3):
-        new_state[x, y, z, w] = "."
-    elif new_state[x, y, z, w] != "#" and active_count == 3:
+    if (x, y, z, w) in new_state and not (2 <= active_count <= 3):
+        del new_state[x, y, z, w]
+    elif (x, y, z, w) not in new_state and active_count == 3:
         new_state[x, y, z, w] = "#"
 
 
 state = {}
 for x, line in enumerate(open("inputs/day17.txt")):
     for y, point in enumerate(line.rstrip()):
-        state[x, y, 0, 0] = point
+        if point == "#":
+            state[x, y, 0, 0] = point
 for _ in range(6):
     new_state = state.copy()
     for x, y, z, w in state:
         mutate(new_state, x, y, z, w)
     state = new_state
-
-print("answer 2:", reduce(lambda total, x: total + 1 if x == "#" else total, state.values(), 0))
+print("answer 2:", len(state))
