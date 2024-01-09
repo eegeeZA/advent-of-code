@@ -1,6 +1,11 @@
 import itertools
 import math
 
+try:
+    bits = open("inputs/day16.txt").read().strip()
+except FileNotFoundError:
+    bits = "A0016C880162017C3686B18A3D4780"
+
 
 def version_totals(binary):
     version = int(binary[:3], 2)
@@ -48,8 +53,6 @@ def version_totals(binary):
         result = int(numbers[0] == numbers[1])
     return version, binary, result
 
-
-bits = open("inputs/day16.txt").read().strip()
 
 version_total, _, evaluation = version_totals("".join(bin(int(char, 16))[2:].zfill(4) for char in bits))
 print("answer 1:", version_total)

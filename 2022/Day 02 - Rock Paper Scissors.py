@@ -1,7 +1,9 @@
-strategy = """A Y
+try:
+    strategy = open("inputs/day02.txt").readlines()
+except FileNotFoundError:
+    strategy = """A Y
 B X
 C Z""".splitlines()
-# strategy = open("inputs/day02.txt").readlines()
 
 scores = {
     'X': 1,

@@ -1,10 +1,9 @@
-paper_sheet = """
+try:
+    paper_sheet = open("inputs/day06.txt").read().splitlines()
+except FileNotFoundError:
+    paper_sheet = """
 Time:      7  15   30
 Distance:  9  40  200
-"""[1:].splitlines()
-paper_sheet = """
-Time:        40     92     97     90
-Distance:   215   1064   1505   1100
 """[1:].splitlines()
 
 times, distances = (list(map(int, line.split()[1:])) for line in paper_sheet)

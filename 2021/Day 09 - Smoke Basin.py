@@ -1,13 +1,15 @@
 import math
 
-heightmap = [
-    "2199943210",
-    "3987894921",
-    "9856789892",
-    "8767896789",
-    "9899965678",
-]
-heightmap = open("inputs/day09.txt").read().splitlines()
+try:
+    heightmap = open("inputs/day09.txt").read().splitlines()
+except FileNotFoundError:
+    heightmap = [
+        "2199943210",
+        "3987894921",
+        "9856789892",
+        "8767896789",
+        "9899965678",
+    ]
 
 low_points = []
 for i in range(len(heightmap)):

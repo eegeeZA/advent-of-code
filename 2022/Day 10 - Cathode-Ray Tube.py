@@ -1,4 +1,7 @@
-instructions = """
+try:
+    instructions = open("inputs/day10.txt").read().splitlines()
+except FileNotFoundError:
+    instructions = """
 addx 15
 addx -11
 addx 6
@@ -146,7 +149,6 @@ noop
 noop
 noop
 """[1:].splitlines()
-instructions = open("inputs/day10.txt").read().splitlines()
 
 x = {1: 1}
 cycle = 1

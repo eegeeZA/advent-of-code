@@ -1,7 +1,9 @@
 import functools
 
-lanternfish = [3, 4, 3, 1, 2]
-lanternfish = list(map(int, open("inputs/day06.txt").read().split(",")))
+try:
+    lanternfish = list(map(int, open("inputs/day06.txt").read().split(",")))
+except FileNotFoundError:
+    lanternfish = [3, 4, 3, 1, 2]
 
 for day in range(80):
     lanternfish = [x - 1 for x in lanternfish]

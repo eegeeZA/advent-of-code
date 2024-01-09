@@ -1,7 +1,10 @@
 import collections
 import itertools
 
-scanners = """
+try:
+    scanners = open("inputs/day19.txt").read()
+except FileNotFoundError:
+    scanners = """
 --- scanner 0 ---
 404,-588,-901
 528,-643,409
@@ -139,7 +142,6 @@ scanners = """
 -652,-548,-490
 30,-46,-14
 """[1:]
-scanners = open("inputs/day19.txt").read()
 
 scanners = [[tuple(map(int, line.split(","))) for line in scanner.splitlines()[1:]]
             for scanner in scanners.split("\n\n")]
@@ -172,7 +174,7 @@ while len(aligned_scanners) < len(scanners):
     seen = set(aligned_scanners.keys())
     for i in range(len(scanners)) - aligned_scanners.keys():
         try_align(next_scanners, i)
-    next_scanners = [aligned_scanners[i][1] for i in aligned_scanners.keys()-seen]
+    next_scanners = [aligned_scanners[i][1] for i in aligned_scanners.keys() - seen]
 
 unique_beacons = {beacon for _, beacons in aligned_scanners.values() for beacon in beacons}
 print("answer 1:", len(unique_beacons))

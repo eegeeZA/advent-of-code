@@ -1,7 +1,9 @@
 import itertools
 
-depths = list(map(int, open("inputs/day01.txt")))
-# depths = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
+try:
+    depths = list(map(int, open("inputs/day01.txt")))
+except FileNotFoundError:
+    depths = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
 
 print("answer 1:", sum(y > x for x, y in itertools.pairwise(depths)))
 

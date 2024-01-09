@@ -1,7 +1,10 @@
 import collections
 import re
 
-cargo = """
+try:
+    cargo = open("inputs/day05.txt").read().splitlines()
+except FileNotFoundError:
+    cargo = """
     [D]    
 [N] [C]    
 [Z] [M] [P]
@@ -11,7 +14,6 @@ move 1 from 2 to 1
 move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2"""[1:].splitlines()
-cargo = open("inputs/day05.txt").read().splitlines()
 
 crates_9000 = collections.defaultdict(collections.deque)
 crates_9001 = collections.defaultdict(collections.deque)

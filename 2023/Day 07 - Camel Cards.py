@@ -1,14 +1,16 @@
 import collections
 import functools
 
-hands = """
+try:
+    hands = open("inputs/day07.txt").read().splitlines()
+except FileNotFoundError:
+    hands = """
 32T3K 765
 T55J5 684
 KK677 28
 KTJJT 220
 QQQJA 483
 """[1:].splitlines()
-hands = open("inputs/day07.txt").read().splitlines()
 
 
 def strength(hand):

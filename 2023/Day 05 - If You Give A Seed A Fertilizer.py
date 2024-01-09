@@ -1,4 +1,7 @@
-almanac = """
+try:
+    almanac = open("inputs/day05.txt").read().split("\n\n")
+except FileNotFoundError:
+    almanac = """
 seeds: 79 14 55 13
 
 seed-to-soil map:
@@ -33,7 +36,6 @@ humidity-to-location map:
 60 56 37
 56 93 4
 """[1:].split("\n\n")
-almanac = open("inputs/day05.txt").read().split("\n\n")
 
 seeds = list(map(int, almanac[0].split()[1:]))
 seed_ranges = [range(seeds[i], seeds[i] + seeds[i + 1]) for i in range(0, len(seeds), 2)]

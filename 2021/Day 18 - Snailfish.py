@@ -2,7 +2,10 @@ import copy
 import itertools
 import math
 
-snailfish_numbers = """
+try:
+    snailfish_numbers = open("inputs/day18.txt").read()
+except FileNotFoundError:
+    snailfish_numbers = """
 [[[0,[5,8]],[[1,7],[9,6]]],[[4,[1,2]],[[1,4],2]]]
 [[[5,[2,8]],4],[5,[[9,9],0]]]
 [6,[[[6,2],[5,6]],[[7,6],[4,7]]]]
@@ -14,7 +17,6 @@ snailfish_numbers = """
 [[2,[[7,7],7]],[[5,8],[[9,3],[0,2]]]]
 [[[[5,2],5],[8,[3,7]]],[[5,[7,5]],[4,4]]]
 """[1:]
-snailfish_numbers = open("inputs/day18.txt").read()
 
 
 def find_paths(number, path=None):

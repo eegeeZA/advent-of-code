@@ -1,5 +1,7 @@
-commands = open("inputs/day02.txt")
-# commands = ["forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"]
+try:
+    commands = open("inputs/day02.txt")
+except FileNotFoundError:
+    commands = ["forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"]
 
 horizontal = depth = depth_with_aim = 0
 for command in commands:

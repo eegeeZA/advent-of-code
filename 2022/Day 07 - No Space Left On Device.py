@@ -1,6 +1,9 @@
 import collections
 
-filesystem = """$ cd /
+try:
+    filesystem = open("inputs/day07.txt").read()
+except FileNotFoundError:
+    filesystem = """$ cd /
 $ ls
 dir a
 14848514 b.txt
@@ -23,7 +26,6 @@ $ ls
 8033020 d.log
 5626152 d.ext
 7214296 k"""
-filesystem = open("inputs/day07.txt").read()
 
 directories = collections.defaultdict(int)
 visited = []

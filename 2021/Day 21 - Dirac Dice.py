@@ -2,11 +2,13 @@ import collections
 import functools
 import itertools
 
-players = """
+try:
+    players = open("inputs/day21.txt").read()
+except FileNotFoundError:
+    players = """
 Player 1 starting position: 4
 Player 2 starting position: 8
 """[1:]
-players = open("inputs/day21.txt").read()
 
 player_scores = [0, 0]
 player_positions = [int(player[-1]) for player in players.splitlines()]

@@ -2,7 +2,10 @@ import functools
 import itertools
 from collections import Counter
 
-instructions = """NNCB
+try:
+    instructions = open("inputs/day14.txt").read()
+except FileNotFoundError:
+    instructions = """NNCB
 
 CH -> B
 HH -> N
@@ -20,7 +23,6 @@ BB -> N
 BC -> B
 CC -> N
 CN -> C"""
-instructions = open("inputs/day14.txt").read()
 
 polymer_template, rules_raw = instructions.split("\n\n")
 insertion_rules = {}

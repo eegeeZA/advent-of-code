@@ -17,7 +17,6 @@ for instruction in open("inputs/day14.txt"):
         result[left] = int("".join(mutate), 2)
 print("answer 1:", sum(result.values()))
 
-
 result = {}
 mask = ""
 for instruction in open("inputs/day14.txt"):

@@ -2,7 +2,10 @@ import copy
 import math
 import types
 
-notes = """
+try:
+    notes = open("inputs/day11.txt").read().split("\n\n")
+except FileNotFoundError:
+    notes = """
 Monkey 0:
   Starting items: 79, 98
   Operation: new = old * 19
@@ -31,7 +34,6 @@ Monkey 3:
     If true: throw to monkey 0
     If false: throw to monkey 1
 """[1:].split("\n\n")
-notes = open("inputs/day11.txt").read().split("\n\n")
 
 monkeys = []
 for note in notes:

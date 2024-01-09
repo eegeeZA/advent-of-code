@@ -1,13 +1,15 @@
 import math
 
-trees = """
+try:
+    trees = open("inputs/day08.txt").read().splitlines()
+except FileNotFoundError:
+    trees = """
 30373
 25512
 65332
 33549
 35390
 """[1:].splitlines()
-trees = open("inputs/day08.txt").read().splitlines()
 
 trees = [[int(tree) for tree in row] for row in trees]
 

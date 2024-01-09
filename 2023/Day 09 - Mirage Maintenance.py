@@ -1,11 +1,13 @@
 import itertools
 
-report = """
+try:
+    report = open("inputs/day09.txt").read().splitlines()
+except FileNotFoundError:
+    report = """
 0 3 6 9 12 15
 1 3 6 10 15 21
 10 13 16 21 30 45
 """[1:].splitlines()
-report = open("inputs/day09.txt").read().splitlines()
 
 next_value_total = 0
 for history in report:

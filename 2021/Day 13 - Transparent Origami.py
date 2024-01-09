@@ -1,6 +1,9 @@
 import collections
 
-instructions = """6,10
+try:
+    instructions = open("inputs/day13.txt").read()
+except FileNotFoundError:
+    instructions = """6,10
 0,14
 9,10
 0,3
@@ -21,7 +24,6 @@ instructions = """6,10
 
 fold along y=7
 fold along x=5"""
-instructions = open("inputs/day13.txt").read()
 
 dots_raw, folds_raw = instructions.split("\n\n")
 dots = collections.defaultdict(bool)

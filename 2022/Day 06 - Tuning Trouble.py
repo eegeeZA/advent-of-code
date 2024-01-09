@@ -1,5 +1,7 @@
-signal = "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
-signal = open("inputs/day06.txt").read()
+try:
+    signal = open("inputs/day06.txt").read()
+except FileNotFoundError:
+    signal = "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
 
 for i in range(len(signal)):
     if len(set(signal[i:i + 4])) == 4:

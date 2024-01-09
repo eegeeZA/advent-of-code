@@ -1,9 +1,11 @@
 from collections import Counter
 from itertools import compress
 
-diagnostics = open("inputs/day03.txt").read().splitlines()
-# diagnostics = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010",
-#                "01010"]
+try:
+    diagnostics = open("inputs/day03.txt").read().splitlines()
+except FileNotFoundError:
+    diagnostics = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010",
+                   "01010"]
 
 gamma_rating = epsilon_rating = ""
 for diagnostic in zip(*diagnostics):

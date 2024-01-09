@@ -1,18 +1,20 @@
 import itertools
 
-octopuses_raw = [
-    "5483143223",
-    "2745854711",
-    "5264556173",
-    "6141336146",
-    "6357385478",
-    "4167524645",
-    "2176841721",
-    "6882881134",
-    "4846848554",
-    "5283751526",
-]
-octopuses_raw = open("inputs/day11.txt").read().splitlines()
+try:
+    octopuses_raw = open("inputs/day11.txt").read().splitlines()
+except FileNotFoundError:
+    octopuses_raw = [
+        "5483143223",
+        "2745854711",
+        "5264556173",
+        "6141336146",
+        "6357385478",
+        "4167524645",
+        "2176841721",
+        "6882881134",
+        "4846848554",
+        "5283751526",
+    ]
 
 octopuses = [[int(octopus) for octopus in octopus_row] for octopus_row in octopuses_raw]
 neighbours = {(i, j): [(x, y) for x in range(i - 1, i + 2) for y in range(j - 1, j + 2)

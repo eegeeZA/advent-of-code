@@ -1,10 +1,12 @@
-rucksack = """vJrwpWtwJgWrhcsFMMfFFhFp
+try:
+    rucksack = open("inputs/day03.txt").read().splitlines()
+except FileNotFoundError:
+    rucksack = """vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw""".splitlines()
-rucksack = open("inputs/day03.txt").read().splitlines()
 
 score = 0
 for line in rucksack:

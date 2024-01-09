@@ -1,5 +1,7 @@
-target_area = "target area: x=20..30, y=-10..-5"
-target_area = open("inputs/day17.txt").read().strip()
+try:
+    target_area = open("inputs/day17.txt").read().strip()
+except FileNotFoundError:
+    target_area = "target area: x=20..30, y=-10..-5"
 
 x_min, x_max, y_min, y_max = [int(part) for area in target_area[13:].split(", ") for part in area[2:].split("..")]
 

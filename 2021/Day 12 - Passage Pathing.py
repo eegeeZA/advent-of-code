@@ -1,15 +1,17 @@
 import collections
 
-caves = [
-    "start-A",
-    "start-b",
-    "A-c",
-    "A-b",
-    "b-d",
-    "A-end",
-    "b-end",
-]
-caves = open("inputs/day12.txt").read().splitlines()
+try:
+    caves = open("inputs/day12.txt").read().splitlines()
+except FileNotFoundError:
+    caves = [
+        "start-A",
+        "start-b",
+        "A-c",
+        "A-b",
+        "b-d",
+        "A-end",
+        "b-end",
+    ]
 
 paths = collections.defaultdict(list)
 for cave in caves:

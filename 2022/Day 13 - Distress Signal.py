@@ -1,7 +1,10 @@
 from functools import cmp_to_key
 from itertools import zip_longest
 
-packets = """
+try:
+    packets = open("inputs/day13.txt").read()
+except FileNotFoundError:
+    packets = """
 [1,1,3,1,1]
 [1,1,5,1,1]
 
@@ -26,7 +29,6 @@ packets = """
 [1,[2,[3,[4,[5,6,7]]]],8,9]
 [1,[2,[3,[4,[5,6,0]]]],8,9]
 """[1:]
-packets = open("inputs/day13.txt").read()
 
 
 def is_ordered(a, b):

@@ -1,5 +1,3 @@
-from collections import Counter
-
 coordinates = []
 max_range = 0
 for xy in open("inputs/day06.txt"):

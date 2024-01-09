@@ -1,7 +1,10 @@
 import collections
 import re
 
-schematic = """
+try:
+    schematic = open("inputs/day03.txt").read().splitlines()
+except FileNotFoundError:
+    schematic = """
 467..114..
 ...*......
 ..35..633.
@@ -13,7 +16,6 @@ schematic = """
 ...$.*....
 .664.598..
 """[1:].splitlines()
-schematic = open("inputs/day03.txt").read().splitlines()
 
 adjacent = 0
 gears = collections.defaultdict(list)

@@ -41,6 +41,6 @@ for k, v in towers.items():
     if inputs.count(k) == 1:
         root_key = k
 print("answer 1:", root_key)
-print("answer 2:",)
+print("answer 2:", )
 towers = build_tree(towers, root_key)
 build_tree_weights(towers)

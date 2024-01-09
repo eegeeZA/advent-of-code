@@ -2,7 +2,10 @@ import collections
 import itertools
 import math
 
-reboot_steps = """
+try:
+    reboot_steps = open("inputs/day22.txt").read()
+except FileNotFoundError:
+    reboot_steps = """
 on x=-20..26,y=-36..17,z=-47..7
 on x=-20..33,y=-21..23,z=-26..28
 on x=-22..28,y=-29..23,z=-38..16
@@ -26,7 +29,6 @@ on x=-41..9,y=-7..43,z=-33..15
 on x=-54112..-39298,y=-85059..-49293,z=-27449..7877
 on x=967..23432,y=45373..81175,z=27513..53682
 """[1:]
-reboot_steps = open("inputs/day22.txt").read()
 
 reactor = collections.defaultdict(bool)
 reactor_large = collections.Counter()

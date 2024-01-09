@@ -1,6 +1,9 @@
 import math
 
-risk_level_map = """
+try:
+    risk_level_map = open("inputs/day15.txt").read()
+except FileNotFoundError:
+    risk_level_map = """
 1163751742
 1381373672
 2136511328
@@ -12,7 +15,6 @@ risk_level_map = """
 1293138521
 2311944581
 """[1:]
-risk_level_map = open("inputs/day15.txt").read()
 
 
 def optimise(risks):

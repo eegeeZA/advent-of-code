@@ -2,14 +2,17 @@ import functools
 import math
 import re
 
-diagram = """
+try:
+    diagram = open("inputs/day23.txt").read()
+except FileNotFoundError:
+    diagram = """
 #############
 #...........#
 ###B#C#B#D###
   #A#D#C#A#
   #########
 """[1:]
-diagram = open("inputs/day23.txt").read()
+
 min_hallway, max_hallway = 0, diagram.count(".")
 max_depth = diagram.count("A") + 1
 diagram = diagram.splitlines()

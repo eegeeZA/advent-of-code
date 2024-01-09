@@ -1,14 +1,16 @@
 import collections
 import math
 
-heightmap = """
+try:
+    heightmap = open("inputs/day12.txt").read().splitlines()
+except FileNotFoundError:
+    heightmap = """
 Sabqponm
 abcryxxl
 accszExk
 acctuvwj
 abdefghi
 """[1:].splitlines()
-heightmap = open("inputs/day12.txt").read().splitlines()
 
 
 def can_reach(current, neighbour):

@@ -1,19 +1,21 @@
 import collections
 import itertools
 
-vents = [
-    "0,9 -> 5,9",
-    "8,0 -> 0,8",
-    "9,4 -> 3,4",
-    "2,2 -> 2,1",
-    "7,0 -> 7,4",
-    "6,4 -> 2,0",
-    "0,9 -> 2,9",
-    "3,4 -> 1,4",
-    "0,0 -> 8,8",
-    "5,5 -> 8,2",
-]
-vents = open("inputs/day05.txt")
+try:
+    vents = open("inputs/day05.txt")
+except FileNotFoundError:
+    vents = [
+        "0,9 -> 5,9",
+        "8,0 -> 0,8",
+        "9,4 -> 3,4",
+        "2,2 -> 2,1",
+        "7,0 -> 7,4",
+        "6,4 -> 2,0",
+        "0,9 -> 2,9",
+        "3,4 -> 1,4",
+        "0,0 -> 8,8",
+        "5,5 -> 8,2",
+    ]
 
 dangerous_areas1 = collections.defaultdict(int)
 dangerous_areas2 = collections.defaultdict(int)

@@ -1,6 +1,9 @@
 import copy
 
-sea_cucumbers = """
+try:
+    sea_cucumbers = open("inputs/day25.txt").read()
+except FileNotFoundError:
+    sea_cucumbers = """
 v...>>.vv>
 .vv>>.vv..
 >>.>v>...v
@@ -11,7 +14,6 @@ v>v.vv.v..
 v.v..>>v.v
 ....v..v.>
 """[1:]
-sea_cucumbers = open("inputs/day25.txt").read()
 sea_cucumbers = [[*sea_cucumber] for sea_cucumber in sea_cucumbers.splitlines()]
 
 moving = True

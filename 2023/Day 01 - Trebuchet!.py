@@ -1,12 +1,14 @@
 import re
 
-calibrations = """
+try:
+    calibrations = open("inputs/day01.txt").read().splitlines()
+except FileNotFoundError:
+    calibrations = """
 1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet
 """[1:].splitlines()
-calibrations = open("inputs/day01.txt").read().splitlines()
 
 integers = [re.findall(r"\d", x) for x in calibrations]
 print("answer 1:", sum(int(x[0] + x[-1]) for x in integers))

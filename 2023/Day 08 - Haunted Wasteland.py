@@ -2,14 +2,16 @@ import functools
 import itertools
 import math
 
-documents = """
+try:
+    documents = open("inputs/day08.txt").read().splitlines()
+except FileNotFoundError:
+    documents = """
 LLR
 
 AAA = (BBB, BBB)
 BBB = (AAA, ZZZ)
 ZZZ = (ZZZ, ZZZ)
 """[1:].splitlines()
-documents = open("inputs/day08.txt").read().splitlines()
 
 sequence = documents[0]
 nodes = {}

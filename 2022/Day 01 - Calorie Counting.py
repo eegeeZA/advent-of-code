@@ -1,4 +1,7 @@
-calories = """1000
+try:
+    calories = open("inputs/day01.txt").read()
+except FileNotFoundError:
+    calories = """1000
 2000
 3000
 
@@ -12,7 +15,6 @@ calories = """1000
 9000
 
 10000"""
-calories = open("inputs/day01.txt").read()
 
 total = []
 for x in calories.split("\n\n"):

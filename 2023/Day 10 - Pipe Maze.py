@@ -1,4 +1,7 @@
-maze = """
+try:
+    maze = open("inputs/day10.txt").read().splitlines()
+except FileNotFoundError:
+    maze = """
 ...........
 .F-------7.
 .|F-----7|.
@@ -9,7 +12,6 @@ maze = """
 .L--S.L--J.
 ...........
 """[1:].splitlines()
-maze = open("inputs/day10.txt").read().splitlines()
 
 
 def neighbours(x, y):
