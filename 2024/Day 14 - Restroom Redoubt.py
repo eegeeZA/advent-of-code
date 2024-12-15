@@ -1,3 +1,4 @@
+import itertools
 import math
 import re
 
@@ -30,19 +31,11 @@ for line in puzzle:
 
 width = 101
 height = 103
-output = open("inputs/day14-out.txt", "w")
-
-for _ in range(10000):
+for _ in range(100):
     for i in range(len(positions)):
         x, y = positions[i]
         vx, vy = velocities[i]
         positions[i] = ((x + vx) % width, (y + vy) % height)
-    output.write(str(_ - 1) + "\n")
-    for y in range(height):
-        for x in range(width):
-            output.write("#" if (x, y) in positions else ".")
-        output.write("\n")
-    output.write("\n")
 quadrants = [0] * 4
 for x, y in positions:
     quadrants[0] += 1 if x < width // 2 and y < height // 2 else 0
@@ -50,4 +43,12 @@ for x, y in positions:
     quadrants[2] += 1 if x < width // 2 and y > height // 2 else 0
     quadrants[3] += 1 if x > width // 2 and y > height // 2 else 0
 print("answer 1:", math.prod(quadrants))
-print("answer 2:", )
+
+for easter_egg in itertools.count(1):
+    for i in range(len(positions)):
+        x, y = positions[i]
+        vx, vy = velocities[i]
+        positions[i] = ((x + vx) % width, (y + vy) % height)
+    if all((x, y) in positions for x, y in zip(range(42, 50), range(42, 50))):
+        break
+print("answer 2:", 100 + easter_egg)
